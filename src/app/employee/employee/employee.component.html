@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="header">
+        <input type="text" #search onfocus="this.placeholder=''" onblur="this.placeholder='Search'"
+            placeholder="Search">
+        <button *ngIf="showEmployeeList" (click)="getExperienceCadidate()">Expreince > 2</button>
+        <button
+            (click)="distinctDepartmentWithEmployeeCount()">{{showEmployeeList?  "Department employee Count" : "Show candidate list"}}
+        </button>
+        <button *ngIf="showEmployeeList" (click)="removeDevelopmenetDepCanidate()">Remove Development Candidate</button>
+        <button *ngIf="showEmployeeList" (click)="refreshData()">Referesh Candidate list</button>
+    </div>
+    <table class="table" *ngIf="showEmployeeList">
+        <thead>
+            <tr>
+                <th class="pointer" (click)="sorting('name')" scope="col">
+                      Name
+                    <i class="fa" [ngClass]="{'fa-sort': column != 'name', 
+                    'fa-sort-asc': (column == 'name' && !isDesc), 
+                    'fa-sort-desc': (column == 'name' && isDesc) }" aria-hidden="true"> </i></th>
+                <th scope="col">Department</th>
+                <th  class="pointer" (click)="sorting('joining_date')" scope="col">Joning Date
+                    <i class="fa" [ngClass]="{'fa-sort': column != 'joining_date', 
+                    'fa-sort-asc': (column == 'joining_date' && !isDesc), 
+                    'fa-sort-desc': (column == 'joining_date' && isDesc) }" aria-hidden="true"> </i>
+                </th>       
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let candidate of candidateData">
+                <td>{{candidate.name}}</td>
+                <td>{{candidate.department}}</td>
+                <td>{{candidate.joining_date}}</td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="candidateData.length == 0">
+            <tr>
+                <td colspan="4" class="no-result">No result found</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table" *ngIf="!showEmployeeList">
+        <thead>
+            <tr>
+                <th scope="col">Department</th>
+                <th scope="col">Employee Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let department of departmentData">
+                <td>{{department.department}}</td>
+                <td>{{department.employee_count}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="candidateData.length == 0">
+            <tr>
+                <td colspan="4" class="no-result">No result found</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

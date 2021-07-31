@@ -1,0 +1,27 @@
+.header {
+    display: flex; 
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+
+.header button {
+    margin-right: 20px;
+    padding:2px 5px;
+    color:black;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+.header input{
+    margin-right: 20px;
+    border-radius: 5px;
+    padding:5px;
+}
+
+.no-result {
+    text-align: center;
+}
+
+.pointer {
+    cursor: pointer;
+}

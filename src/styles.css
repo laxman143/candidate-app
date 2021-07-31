@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box; 
+  }
+
+  :root {
+    --primary-color: #5E56E7;
+    --primary-theme: #F8F7FF
+}
+
+
+body {
+    margin:0;
+    font-family: Montserrat,Regular;
+    font-size: 16px;
+    width: 100%;
+}
+
